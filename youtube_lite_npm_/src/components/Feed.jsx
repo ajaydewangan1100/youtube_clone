@@ -23,10 +23,12 @@ const Feed = () => {
           searchResults.map((item) => {
             // if any item isnot video type not return component
             if(item?.type !== "video") return false;
+
             return (
-              <VideoCard 
-                key={item?.video?.videoID} 
-                video={item?.video} />
+              <VideoCard
+                  key={item?.video?.videoId}
+                  video={item?.video}
+              />
               )
           })}
         </div>
@@ -35,4 +37,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default Feed;

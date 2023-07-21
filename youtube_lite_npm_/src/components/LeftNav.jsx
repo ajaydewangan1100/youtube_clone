@@ -30,8 +30,11 @@ const LeftNav = () => {
     }
   }
 
+
   return (
-    <div className='md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-240] md:translate-x-0 transition-all '>
+    <div className={`md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10  md:translate-x-0 transition-all ${
+      mobileMenu ? "translate-x-0" : "translate-x-[-240px]"
+  }`}>
       <div className="flex flex-col px-5">
         {categories.map((item) => {
           return(
@@ -59,7 +62,7 @@ const LeftNav = () => {
         })}
         <hr className='my-5 border-white/[0.2] ' />
         <div className='text-white text-[12px]'>
-          Cloned by : Ajay with <AiTwotoneHeart className='text-red-600 inline' />
+          Cloned with <AiTwotoneHeart className='text-red-600 inline' /> by Ajay
         </div>
       </div>
     </div>

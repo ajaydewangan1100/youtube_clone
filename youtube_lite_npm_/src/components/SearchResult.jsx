@@ -9,24 +9,23 @@ import SearchResultsVideoCard from './SearchResultVideoCard';
 
 const SearchResult = () => {
   const [result, setResult] = useState();
-  const { searchQuery } = useParams();
-  const { setLoading } = useContext(Context);
+    const { searchquery } = useParams();
+    console.log(useParams())
+    const { setLoading } = useContext(Context);
 
-  useEffect(() => {
-    document.getElementById("root").classList.remove("custom-h");
-    fetchSearchResults();
+    useEffect(() => {
+        document.getElementById("root").classList.remove("custom-h");
+        fetchSearchResults();
+    }, [searchquery]);
 
-  }, [searchQuery])
-
-  const fetchSearchResults = () => {
-    setLoading(true);
-    fetchDataFromApi(`search/?q=${searchQuery}`).then((res) => {
-      console.log(res);
-      setResult(res?.contents);
-      setLoading(false);
-    })
-
-  }
+    const fetchSearchResults = () => {
+        setLoading(true);
+        fetchDataFromApi(`search/?q=${searchquery}`).then((res) => {
+            console.log(res);
+            setResult(res?.contents);
+            setLoading(false);
+        });
+    };
 
   return (
     <div className='flex flex-row h-[calc(100%-56px)] '>
